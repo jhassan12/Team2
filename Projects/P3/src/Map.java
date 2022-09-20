@@ -63,7 +63,31 @@ public class Map {
   }
 
   public boolean attack(String Name) {
-    // update gameOver
+    Location ghostLoc = locations.get("name");
+  
+    // all possible attack ranges:
+    Location loc1 = ghostLoc.shift(-1, -1);
+    Location loc2 = ghostLoc.shift(-1, 0);
+    Location loc3 = ghostLoc.shift(-1, 1);
+    Location loc4 = ghostLoc.shift(0, -1);
+    Location loc5 = ghostLoc.shift(0, 1);
+    Location loc6 = ghostLoc.shift(1, -1);
+    Location loc7 = ghostLoc.shift(1, 0);
+    Location loc8 = ghostLoc.shift(1, 1);
+
+    if (getLoc(loc1).contains(Map.Type.PACMAN)
+        || getLoc(loc2).contains(Map.Type.PACMAN)
+        || getLoc(loc3).contains(Map.Type.PACMAN)
+        || getLoc(loc4).contains(Map.Type.PACMAN)
+        || getLoc(loc5).contains(Map.Type.PACMAN)
+        || getLoc(loc6).contains(Map.Type.PACMAN)
+        || getLoc(loc7).contains(Map.Type.PACMAN)
+        || getLoc(loc8).contains(Map.Type.PACMAN)) {
+      // update gameOver
+      gameOver = true;    
+      return true;  
+    }
+
     return false;
   }
 
