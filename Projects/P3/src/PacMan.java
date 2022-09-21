@@ -18,6 +18,11 @@ public class PacMan {
   }
 
   public boolean move() {
+    ArrayList<Location> possibleMoves = get_valid_moves();
+    if (possibleMoves != null) {
+      myLoc.shift(possibleMoves.get(0).x - myLoc.x, possibleMoves.get(0).y - y );
+      return true;
+    }
     return false;
   }
 
