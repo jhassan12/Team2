@@ -28,23 +28,15 @@ public class Ghost {
   */
   public boolean is_pacman_in_range() {
     // all possible attack ranges:
-    Location loc1 = myLoc.shift(-1, -1);
-    Location loc2 = myLoc.shift(-1, 0);
-    Location loc3 = myLoc.shift(-1, 1);
-    Location loc4 = myLoc.shift(0, -1);
-    Location loc5 = myLoc.shift(0, 1);
-    Location loc6 = myLoc.shift(1, -1);
-    Location loc7 = myLoc.shift(1, 0);
-    Location loc8 = myLoc.shift(1, 1);
+    Location loc1 = myLoc.shift(-1, 0);
+    Location loc2 = myLoc.shift(0, -1);
+    Location loc3 = myLoc.shift(0, 1);
+    Location loc4 = myLoc.shift(1, 0);
 
     if (myMap.getLoc(loc1).contains(Map.Type.PACMAN)
         || myMap.getLoc(loc2).contains(Map.Type.PACMAN)
         || myMap.getLoc(loc3).contains(Map.Type.PACMAN)
-        || myMap.getLoc(loc4).contains(Map.Type.PACMAN)
-        || myMap.getLoc(loc5).contains(Map.Type.PACMAN)
-        || myMap.getLoc(loc6).contains(Map.Type.PACMAN)
-        || myMap.getLoc(loc7).contains(Map.Type.PACMAN)
-        || myMap.getLoc(loc8).contains(Map.Type.PACMAN)) {
+        || myMap.getLoc(loc4).contains(Map.Type.PACMAN)) {
           
       return true;  
     }
