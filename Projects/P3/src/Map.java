@@ -47,6 +47,10 @@ public class Map {
     return cookies;
   }
 
+  public int getDim() {
+    return dim;
+  }
+
   public boolean isGameOver() {
     return gameOver;
   }
@@ -54,7 +58,14 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     // update locations, components, and field
     // use the setLocation method for the component to move it to the new location
-    return false;
+    if (locations.get(name) != null) {
+      field.put(locations.get(name), emptySet);
+    }
+    locations.put(name, loc);
+    HashSet<Type> set = new HashSet<Type>();
+    set.add(type);
+    field.put(loc, set);
+    return true;
   }
 
   public HashSet<Type> getLoc(Location loc) {
