@@ -14,7 +14,29 @@ public class PacMan {
   }
 
   public ArrayList<Location> get_valid_moves() {
-    return null;
+    ArrayList<Location> moveSet = new ArrayList<>();
+    if (!myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.WALL) 
+          && !myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.GHOST)
+          && myLoc.y + 1 < myMap.getDim()) {
+      moveSet.add(new Location(myLoc.x, myLoc.y + 1));
+    }
+    if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.WALL)
+          && !myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.GHOST)
+          && myLoc.x + 1 < myMap.getDim()) {
+      moveSet.add(new Location(myLoc.x + 1, myLoc.y));
+    }
+    if (!myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.WALL)
+          && !myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.GHOST)
+          && myLoc.x - 1 > 0) {
+      moveSet.add(new Location(myLoc.x - 1, myLoc.y));
+    }
+    if (!myMap.getLoc(new Location(myLoc.x, myLoc.y - 1)).contains(Map.Type.WALL)
+          && !myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.GHOST)
+          && myLoc.y - 1 > 0) {
+      moveSet.add(new Location(myLoc.x, myLoc.y - 1));
+    }
+
+    return moveSet;
   }
 
   public boolean move() {
