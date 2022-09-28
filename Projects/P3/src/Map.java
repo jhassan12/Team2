@@ -63,7 +63,7 @@ public class Map {
   }
 
   public boolean attack(String Name) {
-    Location ghostLoc = locations.get("name");
+    Location ghostLoc = locations.get(Name);
   
     // all possible attack ranges:
     Location loc1 = ghostLoc.shift(-1, 0);
