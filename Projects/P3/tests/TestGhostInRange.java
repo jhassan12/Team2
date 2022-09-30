@@ -1,9 +1,14 @@
 import java.io.*;
 import junit.framework.*;
+import java.awt.Color;
 
 public class TestGhostInRange extends TestCase {
 
   public void testGhostInRange() throws FileNotFoundException {
-    return null;
+    MainFrame frame = new MainFrame();
+    PacMan pacman = frame.addPacMan(new Location(1, 1));
+    Ghost ghost1 = frame.addGhost(new Location(1, 2), "g1", Color.red);
+		assert pacman.is_ghost_in_range() == true;
+		frame.startGame(); 
   }
 }
