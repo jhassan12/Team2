@@ -289,10 +289,10 @@ Please **carefully read** the academic honesty section of the course syllabus. *
 
 # Team 2 Project 3: PacMan
 ## Group Members
-- <name>
-- <name>
-- <name>
-- <name>
+- Amal Verma
+- Derek Noppinger
+- Jake Perret
+- Jessica Lee
 ## Image of Pacman Game
 
 ## Run Pacman game
