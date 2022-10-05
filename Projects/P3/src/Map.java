@@ -58,14 +58,13 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     // update locations, components, and field
     // use the setLocation method for the component to move it to the new location
-    if (locations.get(name) != null) {
-      field.put(locations.get(name), emptySet);
-    }
+    Location oldLoc = locations.get(name);
+    locations.remove(name);
     locations.put(name, loc);
-    HashSet<Type> set = new HashSet<Type>();
-    set.add(type);
-    field.put(loc, set);
-    return true;
+    field.get(oldLoc).remove(name);
+    field.get(loc).add(type);
+    components.get(name).setLocation(loc.x, loc.y);
+  return true;
   }
 
   public HashSet<Type> getLoc(Location loc) {
@@ -105,7 +104,7 @@ public class Map {
       String cookieID = "tok_x"+pacmanLoc.x+"_y"+pacmanLoc.y;
       locations.remove(cookieID);
       field.get(pacmanLoc).remove(Type.COOKIE);
-      cookies--;
+      cookies++;
       return components.remove(cookieID);
     } else return null;
   }
