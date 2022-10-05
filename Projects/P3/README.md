@@ -1,14 +1,21 @@
 # Team 2 Project 3: PacMan
+
 ## Group Members
 - Amal Verma
 - Derek Noppinger
 - Jake Perret
 - Jessica Lee
+
 ## Image of Pacman Game
 <INSERT IMAGE OF PACMAN WORKING>
 
 ## Running From Command Line
-To run ```insert command here```
+
+To run the game from the command line run from the src directory: 
+```
+javac *.java
+java StartMenu
+```
 
 ## Function and Test Descriptions
 ### Pacman Class
@@ -26,6 +33,10 @@ To test this function, a new frame and pacman were created and I ran move() on t
 
 To test this function, frame, pacman, and ghost object were created. Ghost location was set to be one unit distance away from pacman's location and expected to return true.
 
+**consume()** -> If pacman is in the same location as a cookie then eat the cookie
+
+To test this function, the pacman is placed on a cookie. Pacman should successfully consume the first time, but fail to consume a second time at the same location (since the cookie will be gone after the first consume).
+
 ### Ghost Class
 
 **get_valid_moves()** -> Allowed so that ghost could move up, down, left, or right one direction assuming the spot was not at the end of the frame or there was not a wall there.
@@ -41,6 +52,10 @@ To test this function, a new frame and ghost were created and I ran move() on th
 
 To test this function, frame, pacman, and 2 ghost objects were created. One of the ghost location was set to be one unit distance away from pacman's location and expected to return true. The other ghost was more than one unit away from pacman and is expected to return false.
 
+**attack()** -> This method checks if Pacman is in attacking range with the is_pacman_in_range() function. If so then the map.attack() is called. Otherwise null is returned.
+
+To test this function the game is initialized twice, once where the pacman is in range and the ghost should successfully attack. Another where Pacman is out of range and should fail to attack.
+
 ### Map Class
 
 **move()** -> If the object exists on the field, it gets removed from the current location and then gets added to the new location.
@@ -55,3 +70,6 @@ To test this function, I created a new frame and added pacman to the location (1
 
 To test this function, frame, pacman, and ghost objects were created. Ghost location was set to be one unit distance away from pacman's location and attack method is expected to return true.
 
+**eatCookie()** -> If the pacman is in the same location as a cookie then the cookie is removed from locations and field, the number of cookies is updated and the cookie component is returned.
+
+To test this function, the pacman is placed on a cookie. Pacman should successfully consume the first time, but fail to consume a second time at the same location (since the cookie will be gone after the first consume).
