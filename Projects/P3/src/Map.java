@@ -47,6 +47,10 @@ public class Map {
     return cookies;
   }
 
+  public int getDim() {
+    return dim;
+  }
+
   public boolean isGameOver() {
     return gameOver;
   }
@@ -54,22 +58,55 @@ public class Map {
   public boolean move(String name, Location loc, Type type) {
     // update locations, components, and field
     // use the setLocation method for the component to move it to the new location
-    return false;
+    if (locations.get(name) != null) {
+      field.put(locations.get(name), emptySet);
+    }
+    locations.put(name, loc);
+    HashSet<Type> set = new HashSet<Type>();
+    set.add(type);
+    field.put(loc, set);
+    return true;
   }
 
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
-    return null;
+    if(field.get(loc) != null) {
+      return field.get(loc);
+    }
+    return emptySet;
   }
 
   public boolean attack(String Name) {
-    // update gameOver
+    Location ghostLoc = locations.get(Name);
+  
+    // all possible attack ranges:
+    Location loc1 = ghostLoc.shift(-1, 0);
+    Location loc2 = ghostLoc.shift(0, -1);
+    Location loc3 = ghostLoc.shift(0, 1);
+    Location loc4 = ghostLoc.shift(1, 0);
+  
+    if (getLoc(loc1).contains(Map.Type.PACMAN)
+        || getLoc(loc2).contains(Map.Type.PACMAN)
+        || getLoc(loc3).contains(Map.Type.PACMAN)
+        || getLoc(loc4).contains(Map.Type.PACMAN)) {
+      // update gameOver
+      gameOver = true;    
+      return true;  
+    }
+
     return false;
   }
 
   public JComponent eatCookie(String name) {
     // update locations, components, field, and cookies
     // the id for a cookie at (10, 1) is tok_x10_y1
-    return null;
+    Location pacmanLoc = locations.get(name);
+    if (field.get(pacmanLoc).contains(Type.COOKIE)) {
+      String cookieID = "tok_x"+pacmanLoc.x+"_y"+pacmanLoc.y;
+      locations.remove(cookieID);
+      field.get(pacmanLoc).remove(Type.COOKIE);
+      cookies--;
+      return components.remove(cookieID);
+    } else return null;
   }
 }
