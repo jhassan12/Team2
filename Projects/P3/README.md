@@ -7,7 +7,7 @@
 - Jessica Lee
 
 ## Image of Pacman Game
-<INSERT IMAGE OF PACMAN WORKING>
+<img width="483" alt="Screen Shot 2022-10-05 at 7 17 48 PM" src="https://user-images.githubusercontent.com/73036954/194181072-b31175e8-fff3-4428-8796-8a697363a384.png">
 
 ## Running From Command Line
 
