@@ -12,9 +12,9 @@
 ## Running From Command Line
 
 To run the game from the command line run from the src directory: 
-```
-javac *.java
-java StartMenu
+```bash
+javac -cp "src/" src/*.java
+java -cp "src/" StartMenu
 ```
 
 ## Function and Test Descriptions
