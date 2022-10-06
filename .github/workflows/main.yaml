@@ -1,0 +1,17 @@
+name: Run Tests
+
+on: [push, pull_request, workflow_dispatch]
+
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    container: openjdk
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build Project
+        run: |
+          java -version
+          javac *.java
+      
