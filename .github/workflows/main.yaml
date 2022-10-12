@@ -19,6 +19,7 @@ jobs:
   TestGhostMove:
     runs-on: ubuntu-latest
     container: openjdk
+    
     steps:
       - uses: actions/checkout@v2
       - name: Test Ghost Move
@@ -31,6 +32,7 @@ jobs:
   TestPacmanMove:
     runs-on: ubuntu-latest
     container: openjdk
+    
     steps:
       - uses: actions/checkout@v2
       - name: Test Pacman Move
@@ -43,6 +45,7 @@ jobs:
   TestMapGetLoc:
     runs-on: ubuntu-latest
     container: openjdk
+    
     steps:
       - uses: actions/checkout@v2
       - name: Test Map Get Loc
