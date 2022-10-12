@@ -20,8 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     container: openjdk
     steps:
-      - uses: actions/checkout@v2
-      - name: Test Ghost Move
+      -uses: actions/checkout@v2
+      -name: Test Ghost Move
       run: |
         cd Projects/P3
         java -version
@@ -32,8 +32,8 @@ jobs:
     runs-on: ubuntu-latest
     container: openjdk
     steps:
-      - uses: actions/checkout@v2
-      - name: Test Pacman Move
+      -uses: actions/checkout@v2
+      -name: Test Pacman Move
       run: |
         cd Projects/P3
         java -version
@@ -44,8 +44,8 @@ jobs:
     runs-on: ubuntu-latest
     container: openjdk
     steps:
-      - uses: actions/checkout@v2
-      - name: Test Map Get Loc
+      -uses: actions/checkout@v2
+      -name: Test Map Get Loc
       run: |
         cd Projects/P3
         java -version
