@@ -8,7 +8,7 @@ public class TestGhostInRange extends TestCase {
     NoFrame frame = new NoFrame();
     PacMan pacman = frame.addPacMan(new Location(1, 1));
     Ghost ghost1 = frame.addGhost(new Location(1, 2), "g1", Color.red);
-		assertTrue(pacman.is_ghost_in_range())
+		assert pacman.is_ghost_in_range() == true;
 		frame.startGame(); 
   }
 }
