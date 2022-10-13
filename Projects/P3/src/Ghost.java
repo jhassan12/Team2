@@ -15,7 +15,7 @@ public class Ghost {
     ArrayList<Location> moveSet = new ArrayList<>();
     if (!myMap.getLoc(new Location(myLoc.x, myLoc.y + 1)).contains(Map.Type.WALL)
           && myLoc.y + 1 < myMap.getDim()) {
-      moveSet.add(new Location(myLoc.x, myLoc.y + 1));
+      moveSet.add(new Location(myLoc.x + 1, myLoc.y));
     }
     if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.WALL)
           && myLoc.x + 1 < myMap.getDim()) {

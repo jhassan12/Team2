@@ -37,7 +37,7 @@ public class PacMan {
       moveSet.add(new Location(myLoc.x, myLoc.y - 1));
     }
 
-    return moveSet;
+    return new ArrayList<>();
   }
 
   public boolean move() {
