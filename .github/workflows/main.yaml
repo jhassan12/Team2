@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Test Map Attack
-        run:
+        run: |
           cd Projects/P3
           java -version
           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
