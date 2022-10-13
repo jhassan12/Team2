@@ -15,7 +15,7 @@ jobs:
           cd Projects/P3/src
           java -version
           javac *.java
-  
+          
   TestPacManValidMoves:
     runs-on: ubuntu-latest
     container: openjdk
@@ -41,7 +41,7 @@ jobs:
           java -version
           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
           java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestGhostValidMoves
-
+          
   TestMapMove:
     runs-on: ubuntu-latest
     container: openjdk
@@ -54,4 +54,42 @@ jobs:
           java -version
           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
           java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestMapMove
+          
+  TestGhostMove:
+    runs-on: ubuntu-latest
+    container: openjdk
 
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test Ghost Move
+        run: |
+          cd Projects/P3
+          java -version
+          javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
+          java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestGhostMove
+ 
+  TestPacManMove:
+    runs-on: ubuntu-latest
+    container: openjdk
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test PacMan Move
+        run: |
+          cd Projects/P3
+          java -version
+          javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
+          java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestPacManMove
+          
+  TestMapGetLoc:
+    runs-on: ubuntu-latest
+    container: openjdk
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Test Map GetLoc
+        run: |
+          cd Projects/P3
+          java -version
+          javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
+          java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestMapGetLoc
