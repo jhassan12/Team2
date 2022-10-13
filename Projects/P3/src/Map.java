@@ -90,7 +90,7 @@ public class Map {
         || getLoc(loc4).contains(Map.Type.PACMAN)) {
       // update gameOver
       gameOver = true;    
-      return false;  
+      return true;  
     }
 
     return false;
