@@ -85,7 +85,7 @@ public class Map {
     Location loc4 = ghostLoc.shift(1, 0);
   
     if (getLoc(loc1).contains(Map.Type.PACMAN)
-        || getLoc(loc2).contains(Map.Type.PACMAN)
+        || getLoc(loc3).contains(Map.Type.PACMAN)
         || getLoc(loc3).contains(Map.Type.PACMAN)
         || getLoc(loc4).contains(Map.Type.PACMAN)) {
       // update gameOver
