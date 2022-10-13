@@ -19,7 +19,7 @@ public class Ghost {
     }
     if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.WALL)
           && myLoc.x + 1 < myMap.getDim()) {
-      moveSet.add(new Location(myLoc.x + 1, myLoc.y));
+      moveSet.add(new Location(myLoc.x - 1, myLoc.y));
     }
     if (!myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.WALL)
           && myLoc.x - 1 > 0) {
