@@ -15,4 +15,19 @@ jobs:
           cd Projects/P3/src
           java -version
           javac *.java
-      
+     
+
+    TestMapAttack:
+      runs-on: ubuntu-latest
+      container: openjdk
+
+      steps:
+        - uses: actions/checkout@v2
+        - name: Test Map Attack
+          run:
+            cd Projects/P3
+            java -version
+            javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
+            java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestMapAttack
+
+
