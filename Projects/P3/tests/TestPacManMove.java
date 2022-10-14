@@ -7,7 +7,7 @@ public class TestPacManMove extends TestCase {
     NoFrame frame = new NoFrame();
     PacMan pacman = frame.addPacMan(new Location(1, 1));
     pacman.move();
-    assert (pacman.myLoc.x == 1 && pacman.myLoc.y == 2);
+    assertTrue(pacman.myLoc.x == 1 && pacman.myLoc.y == 2);
     frame.startGame();
   }
 }
