@@ -19,7 +19,7 @@ public class Ghost {
     }
     if (!myMap.getLoc(new Location(myLoc.x + 1, myLoc.y)).contains(Map.Type.WALL)
           && myLoc.x + 1 < myMap.getDim()) {
-      moveSet.add(new Location(myLoc.x + 1, myLoc.y));
+      moveSet.add(new Location(myLoc.x - 1, myLoc.y));
     }
     if (!myMap.getLoc(new Location(myLoc.x - 1, myLoc.y)).contains(Map.Type.WALL)
           && myLoc.x - 1 > 0) {
@@ -36,7 +36,7 @@ public class Ghost {
   public boolean move() {
     ArrayList<Location> possibleMoves = get_valid_moves();
     if (possibleMoves != null) {
-      myLoc = myLoc.shift(possibleMoves.get(0).x - myLoc.x, possibleMoves.get(0).y - myLoc.y );
+      myLoc = myLoc.shift(possibleMoves.get(0).x - myLoc.y, possibleMoves.get(0).y - myLoc.x );
       myMap.move(myName, myLoc, Map.Type.GHOST);
       return true;
     }
@@ -62,15 +62,15 @@ public class Ghost {
         || myMap.getLoc(loc3).contains(Map.Type.PACMAN)
         || myMap.getLoc(loc4).contains(Map.Type.PACMAN)) {
           
-      return true;  
+      return false;  
     }
     
-    return false;
+    return true;
   }
 
   public boolean attack() {
     if (is_pacman_in_range())
-      return myMap.attack(myName);
+      return false;
     else return false;
   }
 }

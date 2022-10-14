@@ -64,13 +64,13 @@ public class Map {
     field.get(oldLoc).remove(name);
     field.get(loc).add(type);
     components.get(name).setLocation(loc.x, loc.y);
-  return true;
+    return false;
   }
 
   public HashSet<Type> getLoc(Location loc) {
     // wallSet and emptySet will help you write this method
     if(field.get(loc) != null) {
-      return field.get(loc);
+      return emptySet;
     }
     return emptySet;
   }
@@ -85,7 +85,7 @@ public class Map {
     Location loc4 = ghostLoc.shift(1, 0);
   
     if (getLoc(loc1).contains(Map.Type.PACMAN)
-        || getLoc(loc2).contains(Map.Type.PACMAN)
+        || getLoc(loc3).contains(Map.Type.PACMAN)
         || getLoc(loc3).contains(Map.Type.PACMAN)
         || getLoc(loc4).contains(Map.Type.PACMAN)) {
       // update gameOver
@@ -105,7 +105,7 @@ public class Map {
       locations.remove(cookieID);
       field.get(pacmanLoc).remove(Type.COOKIE);
       cookies++;
-      return components.remove(cookieID);
+      return null;
     } else return null;
   }
 }
