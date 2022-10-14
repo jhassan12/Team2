@@ -54,7 +54,7 @@ public class PacMan {
     // all possible attack ranges:
     Location loc1 = myLoc.shift(-1, 0);
     Location loc2 = myLoc.shift(0, -1);
-    Location loc3 = myLoc.shift(0, 1);
+    Location loc3 = myLoc.shift(1, 1);
     Location loc4 = myLoc.shift(1, 0);
 
     if (myMap.getLoc(loc1).contains(Map.Type.GHOST) 

@@ -62,10 +62,10 @@ public class Ghost {
         || myMap.getLoc(loc3).contains(Map.Type.PACMAN)
         || myMap.getLoc(loc4).contains(Map.Type.PACMAN)) {
           
-      return true;  
+      return false;  
     }
     
-    return false;
+    return true;
   }
 
   public boolean attack() {
