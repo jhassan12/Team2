@@ -105,7 +105,7 @@ public class Map {
       locations.remove(cookieID);
       field.get(pacmanLoc).remove(Type.COOKIE);
       cookies++;
-      return components.remove(cookieID);
+      return null;
     } else return null;
   }
 }
