@@ -37,13 +37,13 @@ public class PacMan {
       moveSet.add(new Location(myLoc.x, myLoc.y - 1));
     }
 
-    return moveSet;
+    return new ArrayList<>();
   }
 
   public boolean move() {
     ArrayList<Location> possibleMoves = get_valid_moves();
     if (possibleMoves != null) {
-      myLoc = myLoc.shift(possibleMoves.get(0).x - myLoc.x, possibleMoves.get(0).y - myLoc.y );
+      myLoc = myLoc.shift(possibleMoves.get(0).x - myLoc.y, possibleMoves.get(0).y - myLoc.x );
       myMap.move(myName, myLoc, Map.Type.PACMAN);
       return true;
     }
@@ -54,7 +54,7 @@ public class PacMan {
     // all possible attack ranges:
     Location loc1 = myLoc.shift(-1, 0);
     Location loc2 = myLoc.shift(0, -1);
-    Location loc3 = myLoc.shift(0, 1);
+    Location loc3 = myLoc.shift(1, 1);
     Location loc4 = myLoc.shift(1, 0);
 
     if (myMap.getLoc(loc1).contains(Map.Type.GHOST) 
@@ -70,7 +70,7 @@ public class PacMan {
 
   public JComponent consume() {
 	  if (myMap.getLoc(myLoc).contains(Map.Type.COOKIE))
-		  return myMap.eatCookie("pacman");
+		  return null;
 	  else
 		  return null;
   }
