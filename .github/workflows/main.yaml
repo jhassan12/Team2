@@ -1,13 +1,11 @@
 name: Run Tests
 
-on: [push, pull_request, workflow_dispatch]
-
+on: [ push, pull_request, workflow_dispatch ]
 
 jobs:
   compile:
     runs-on: ubuntu-latest
     container: openjdk
-
     steps:
       - uses: actions/checkout@v2
       - name: Build Project
@@ -15,11 +13,10 @@ jobs:
           cd Projects/P3/src
           java -version
           javac *.java
-          
+
   TestAttack:
     runs-on: ubuntu-latest
     container: openjdk
-
     steps:
       - uses: actions/checkout@v2
       - name: Test Attack
@@ -28,11 +25,10 @@ jobs:
           java -version
           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
           java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestAttack
-          
-  TestConsume:
-      runs-on: ubuntu-latest
-    container: openjdk
 
+  TestConsume:
+    runs-on: ubuntu-latest
+    container: openjdk
     steps:
       - uses: actions/checkout@v2
       - name: Test Consume
@@ -41,11 +37,10 @@ jobs:
           java -version
           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
           java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestConsume
-          
-  TestGhostInRange:
-      runs-on: ubuntu-latest
-    container: openjdk
 
+  TestGhostInRange:
+    runs-on: ubuntu-latest
+    container: openjdk
     steps:
       - uses: actions/checkout@v2
       - name: Test Ghost In Range
@@ -54,11 +49,10 @@ jobs:
           java -version
           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
           java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestGhostInRange
-          
+
   TestGhostMove:
     runs-on: ubuntu-latest
     container: openjdk
-
     steps:
       - uses: actions/checkout@v2
       - name: Test Ghost Move
@@ -67,8 +61,7 @@ jobs:
           java -version
           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
           java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestGhostMove
-          
-  
+
   TestGhostValidMoves:
     runs-on: ubuntu-latest
     container: openjdk
@@ -80,11 +73,8 @@ jobs:
           java -version
           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
           java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestGhostValidMoves
-       
-    
 
- 
- TestMapAttack:
+  TestMapAttack:
     runs-on: ubuntu-latest
     container: openjdk
     steps:
@@ -95,25 +85,22 @@ jobs:
           java -version
           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
           java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestMapAttack
-          
+
   TestMapEatCookie:
     runs-on: ubuntu-latest
     container: openjdk
-
     steps:
       - uses: actions/checkout@v2
       - name: Test Map Eat Cookie
         run: |
           cd Projects/P3
-          java -version
-          javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
-          java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestMapEatCookie
-          
-   
+           java -version
+           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
+           java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestMapEatCookie
+
   TestMapGetLoc:
     runs-on: ubuntu-latest
     container: openjdk
-
     steps:
       - uses: actions/checkout@v2
       - name: Test Map GetLoc
@@ -122,11 +109,10 @@ jobs:
           java -version
           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
           java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestMapGetLoc
-   
+
   TestMapMove:
     runs-on: ubuntu-latest
     container: openjdk
-
     steps:
       - uses: actions/checkout@v2
       - name: Test Map Move
@@ -135,11 +121,10 @@ jobs:
           java -version
           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
           java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestMapMove
-          
-  TestPackmanInRange:
+
+  TestPacmanInRange:
     runs-on: ubuntu-latest
     container: openjdk
-
     steps:
       - uses: actions/checkout@v2
       - name: Test Pacman In Rnage
@@ -148,11 +133,10 @@ jobs:
           java -version
           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
           java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestPackmanInRange
-          
+
   TestPacManMove:
     runs-on: ubuntu-latest
     container: openjdk
-
     steps:
       - uses: actions/checkout@v2
       - name: Test PacMan Move
@@ -161,12 +145,10 @@ jobs:
           java -version
           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
           java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestPacManMove
-          
-  
+
   TestPacManValidMoves:
     runs-on: ubuntu-latest
     container: openjdk
-
     steps:
       - uses: actions/checkout@v2
       - name: Test PacMan Valid Moves
@@ -175,8 +157,3 @@ jobs:
           java -version
           javac -cp "src/:tests/:tests/junit-4.10.jar" src/*.java tests/*.java
           java -cp "src/:tests/:tests/junit-4.10.jar" org.junit.runner.JUnitCore TestPacManValidMoves
-
-
-
-
-
