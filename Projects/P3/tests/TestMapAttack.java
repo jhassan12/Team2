@@ -8,7 +8,7 @@ public class TestMapAttack extends TestCase {
     NoFrame frame = new NoFrame();
     PacMan pacman = frame.addPacMan(new Location(1, 1));
     Ghost ghost1 = frame.addGhost(new Location(1, 2), "g1", Color.red);
-    assert frame.getMap().attack("g1") == true;
+    assertTrue(frame.getMap().attack("g1") == true);
     frame.startGame();
   }
 }
